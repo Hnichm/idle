@@ -1,10 +1,10 @@
 class Player {
-  constructor(health, damage){
+  constructor(health, damage) {
     this.health = health;
     this.damage = damage;
   }
 
-  takeDamage(damage){
-    this.health -= damage
+  takeDamage(damage) {
+    this.health -= damage;
   }
 }
