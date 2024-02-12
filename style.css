@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ! COLORS */
+
+:root {
+  --linen: #fbf3ebff;
+  --rich-black: #0e131fff;
+  --battleship-gray: #788585ff;
+  --carmine: #a30015ff;
+  --redwood: #b23a48ff;
+}
+
+/* main ui container which holds 5 components
+top bar
+right bar
+center
+bottom bar
+left bat */
+.main-container {
+  display: grid;
+  border: 2px black solid;
+  background-color: rgba(237, 221, 221, 0.7);
+  height: 100vh;
+  grid-template-columns: 0.25fr 1fr 0.25fr;
+  grid-template-rows: 0.25fr 1fr 0.25fr;
+  grid-template-areas:
+    "top top top"
+    "left center right"
+    "bottom bottom bottom";
+}
+
+/* ! START top bar, holds game title, version */
+.top-bar {
+  display: grid;
+  grid-area: top;
+  border: 1px solid green;
+  grid-template-rows: 1fr 0.25fr;
+  grid-template-areas:
+    "title"
+    "version";
+}
+
+.title {
+  grid-area: title;
+  border: 1px solid yellow;
+}
+
+.version {
+  grid-area: version;
+  border: 1px solid royalblue;
+}
+/* * END TOP BAR */
+
+/* ! START right bar, enemy stats */
+.right-bar {
+  display: grid;
+  grid-area: right;
+  border: 1px solid blue;
+}
+/* * END BOTTOM BAR */
+
+/* ! START center, images */
+.center {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    ". . enemy"
+    ". . ."
+    "player . .";
+  grid-area: center;
+  border: 1px solid yellow;
+  background-color: var(--linen);
+}
+
+.player {
+  grid-area: player;
+}
+
+.enemy {
+  grid-area: enemy;
+}
+/* * END CENTER */
+
+/* ! START left bar, player stats */
+.left-bar {
+  display: grid;
+  grid-area: left;
+  border: 1px solid red;
+}
+/* * END left bar */
+
+/* ! START bottom bar, player health, player aa timer, skills, message box */
+.bottom-bar {
+  display: grid;
+  grid-area: bottom;
+  border: 2px solid white;
+  grid-template-columns: 0.5fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "player-health skill1 skill2 skill3 skill4 skill5 message message"
+    "aa-timer skill1 skill2 skill3 skill4 skill5 message message";
+}
+
+.player-health {
+  grid-area: player-health;
+  border: 4px solid green;
+}
+
+.aa-timer {
+  grid-area: aa-timer;
+  border: solid 1px red;
+}
+
+.skill1 {
+  grid-area: skill1;
+  border: 1px solid fuchsia;
+}
+
+.skill2 {
+  grid-area: skill2;
+  border: 1px solid orange;
+}
+
+.skill3 {
+  grid-area: skill3;
+  border: 1px solid chartreuse;
+}
+
+.skill4 {
+  grid-area: skill4;
+  border: 1px solid salmon;
+}
+
+.skill5 {
+  grid-area: skill5;
+  border: 1px solid blue;
+}
+
+.message {
+  grid-area: message;
+  border: 1px solid saddlebrown;
+}
+
+/* * END bottom bar */
