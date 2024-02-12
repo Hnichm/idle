@@ -4,10 +4,24 @@ class Player {
     this.damage = damage;
     this.autoAttackAmount = 0;
     this.autoAttackTime = 2000;
+    this.regenAmount = 2;
+    this.regenTick = 0;
   }
 
   takeDamage(damage) {
     this.health -= damage;
+  }
+
+  regen() {
+    if (this.regenTick >= 10) {
+      this.regenTick = 0;
+      this.health += this.regenAmount;
+    } else if (this.regenTick < 10) {
+      setTimeout(() => {
+        this.regenTick += 1;
+        console.log(`Regeneration Tick: ${this.regenTick}`);
+      }, 100);
+    }
   }
 }
 
@@ -43,6 +57,8 @@ function gameLoop() {
   } else {
     enemy.autoAttackAmount += 100;
   }
+
+  player.regen();
 
   setTimeout(gameLoop, 100);
 }
