@@ -1,10 +1,11 @@
 class Player {
-  constructor(health, damage, autoAttackTime) {
+  constructor(maxHealth, health, damage, autoAttackTime) {
+    this.maxHealth = maxHealth;
     this.health = health;
     this.damage = damage;
     this.autoAttackAmount = 0;
-    this.autoAttackTime = 2000;
-    this.regenAmount = 2;
+    this.autoAttackTime = 1500;
+    this.regenAmount = 1;
     this.regenTick = 0;
   }
 
@@ -12,14 +13,24 @@ class Player {
     this.health -= damage;
   }
 
+  healthCheck() {
+    if (this.health > this.maxHealth) {
+      this.health = this.maxHealth;
+    }
+
+    if (this.health <= 0) {
+      alert("Loss");
+    }
+  }
+
   regen() {
     if (this.regenTick >= 10) {
       this.regenTick = 0;
+      console.log(`Regenerated ${this.regenAmount} health`);
       this.health += this.regenAmount;
     } else if (this.regenTick < 10) {
       setTimeout(() => {
         this.regenTick += 1;
-        console.log(`Regeneration Tick: ${this.regenTick}`);
       }, 100);
     }
   }
@@ -30,7 +41,7 @@ class Enemy {
     this.health = health;
     this.damage = damage;
     this.autoAttackAmount = 0;
-    this.autoAttackTime = 3500;
+    this.autoAttackTime = 1000;
   }
 
   takeDamage(damage) {
@@ -38,7 +49,7 @@ class Enemy {
   }
 }
 
-let player = new Player(100, 10);
+let player = new Player(100, 100, 10);
 let enemy = new Enemy(50, 3);
 
 function gameLoop() {
@@ -57,7 +68,7 @@ function gameLoop() {
   } else {
     enemy.autoAttackAmount += 100;
   }
-
+  player.healthCheck();
   player.regen();
 
   setTimeout(gameLoop, 100);
