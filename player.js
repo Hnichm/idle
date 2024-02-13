@@ -28,6 +28,7 @@ class Player {
     }
   }
 
+  // TODO update health VIA dom
   regen() {
     if (this.regenTick >= 10) {
       this.regenTick = 0;
