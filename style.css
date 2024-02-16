@@ -15,11 +15,11 @@
 }
 
 /* main ui container which holds 5 components
-top bar
-right bar
-center
-bottom bar
-left bat */
+  top bar
+  right bar
+  center
+  bottom bar
+  left bat */
 .main-container {
   display: grid;
   border: 2px black solid;
@@ -69,12 +69,28 @@ left bat */
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-    ". . enemy"
     ". . ."
+    ". . enemy"
     "player . .";
   grid-area: center;
   border: 1px solid yellow;
   background-color: var(--linen);
+  background: linear-gradient(
+    to right,
+    rgba(74, 74, 74, 1.15),
+    rgba(55, 1, 1, 0.97),
+    rgba(0, 0, 0, 0.95)
+  );
+  animation: pulse-center 6s ease-in-out infinite;
+}
+
+.center-background {
+  grid-area: center;
+  background-image: url("./images/backgrounds/background-2.jpeg");
+  background-size: cover;
+  transform: scaleX(-1);
+  background-repeat: repeat;
+  z-index: -1;
 }
 
 .player {
@@ -83,6 +99,7 @@ left bat */
 
 .enemy {
   grid-area: enemy;
+  transform: translateY(6rem);
 }
 /* * END CENTER */
 
@@ -147,3 +164,29 @@ left bat */
 }
 
 /* * END bottom bar */
+
+/* ? Animations */
+
+@keyframes pulse-center {
+  0% {
+    background-position: 0% 50%; /* Initial center position */
+  }
+  25% {
+    background-position: -25% 50%; /* Stronger shift to the left */
+    opacity: 0.95; /* Subtle opacity change for blending */
+  }
+  50% {
+    background-position: -50% 50%;
+    opacity: 0.98;
+  }
+  100% {
+    background-position: 0% 50%; /* Back to center */
+    opacity: 1.1; /* Slightly higher end opacity */
+  }
+}
+
+/* ! Setting combat UI to hidden before selection of
+.main-container,
+.hidden {
+  display: none;
+} */

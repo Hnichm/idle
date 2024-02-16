@@ -7,13 +7,13 @@ let enemy = new Enemy(50, 3, 2000);
 setInterval(() => player.attack(enemy), player.autoAttackTime);
 setInterval(() => enemy.attack(player), enemy.autoAttackTime);
 
-function gameLoop() {
-  // ? Player health check
-  player.healthCheck();
-  // ? Player regen
-  player.regen();
+// function gameLoop() {
+//   // ? Player health check
+//   player.healthCheck();
+//   // ? Player regen
+//   player.regen();
 
-  setTimeout(gameLoop, 100);
-}
+//   setTimeout(gameLoop, 100);
+// }
 
-gameLoop();
+// gameLoop();
