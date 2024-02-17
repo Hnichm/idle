@@ -1,19 +1,13 @@
-import Player from "./player.js";
-import Enemy from "./enemy.js";
+import Warrior from "./src/characters/warrior.js";
+import Enemy from "./src/characters/enemy.js";
 
-let player = new Player(100, 100, 10, 1500);
-let enemy = new Enemy(50, 3, 2000);
+const player = new Warrior(100, 100, 5, 1.5, "warriorImage");
+const enemy = new Enemy(80, 80, 3, 10, 2, "enemyImage");
 
-setInterval(() => player.attack(enemy), player.autoAttackTime);
-setInterval(() => enemy.attack(player), enemy.autoAttackTime);
+setInterval(function () {
+  player.attack(enemy);
+}, 1500);
 
-// function gameLoop() {
-//   // ? Player health check
-//   player.healthCheck();
-//   // ? Player regen
-//   player.regen();
-
-//   setTimeout(gameLoop, 100);
-// }
-
-// gameLoop();
+setInterval(function () {
+  enemy.attack(player);
+}, 3000);
