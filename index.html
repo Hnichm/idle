@@ -16,19 +16,14 @@
         <div class="enemy-health">
           <div class="enemy-health-bar"></div>
         </div>
+        <div class="enemy-stats"></div>
+        <button class="ascend-button">Ascend</button>
+        <button class="descend-button">Descend</button>
       </div>
       <div class="center-background"></div>
       <div class="center">
-        <img
-          src="./images/enemy/orc/orc-tribal-warrior-1.png"
-          alt="orc warrior, tribal"
-          class="enemy"
-        />
-        <img
-          src="./images/player/main-character-dragoon.png"
-          alt=""
-          class="player"
-        />
+        <img src="" alt="orc warrior, tribal" class="enemy-image" />
+        <img src="" alt="" class="player-image" />
       </div>
       <div class="bottom-bar">
         <div class="player-health">
@@ -44,6 +39,11 @@
       </div>
       <div class="left-bar">PLAYER STATS</div>
     </div>
-    <script type="module" src="script.js"></script>
+    HTML
+    <script type="module" src="./src/characters/character.js"></script>
+    <script type="module" src="./src/characters/enemy.js"></script>
+    <script type="module" src="./src/characters/warrior.js"></script>
+    <script type="module" src="./src/utils/rng.js"></script>
+    <script type="module" src="./game.js"></script>
   </body>
 </html>

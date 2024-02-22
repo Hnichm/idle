@@ -1,23 +1,14 @@
 import Character from "./character.js";
-import randomNumberGenerator from "../utils/randomNumberGenerator.js";
 
-class Warrior extends Character {
-  constructor(health, maxHealth, attackPower, attackSpeed, image) {
-    super(health, maxHealth, attackPower, attackSpeed, image);
-
-    // Warrior-specific
-    this.lifestealPercentage = 0.1; // Heals for 10% of damage dealt
+export default class Warrior extends Character {
+  constructor(...args) {
+    super(...args);
+    this.attackPower = 20;
+    console.log("Warrior has been created");
   }
 
   attack(target) {
     target.health -= this.attackPower;
-    let randomNumber = randomNumberGenerator();
-    // Lifesteal Effect
-    console.log(`${randomNumber}`);
-    if (randomNumber > 50) {
-      console.log(`greater than 50`);
-    }
+    console.log(`Warrior deals ${this.attackPower} damage to the enemy!`);
   }
 }
-
-export default Warrior;

@@ -60,11 +60,12 @@
   display: grid;
   grid-area: right;
   border: 1px solid blue;
-  grid-template-rows: 0.085fr 1fr 1fr;
+  grid-template-rows: 0.085fr 1fr 1fr 1fr;
   grid-template-areas:
     "enemy-health"
-    "enemy-aa"
-    "enemy-something";
+    "enemy-stats"
+    "ascend"
+    "descend";
 }
 
 .enemy-health {
@@ -77,6 +78,24 @@
   height: 100%;
   background-color: #a30015ff;
   transition: none;
+}
+
+.enemy-stats {
+  grid-area: enemy-stats;
+  background-color: #222;
+  color: white;
+}
+
+.ascend-button {
+  grid-area: ascend;
+  background-color: #222;
+  color: white;
+}
+
+.descend-button {
+  grid-area: descend;
+  background-color: #222;
+  color: white;
 }
 
 /* * END BOTTOM BAR */
@@ -110,13 +129,18 @@
   z-index: -1;
 }
 
-.player {
+.player-image {
   grid-area: player;
 }
 
-.enemy {
+.enemy-image {
   grid-area: enemy;
   transform: translateY(6rem);
+  transition: opacity 0.5s ease-in-out;
+}
+
+.enemy-image.fade-out {
+  opacity: 0; /* Makes the image completely transparent */
 }
 /* * END CENTER */
 
